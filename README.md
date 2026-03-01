@@ -1,6 +1,6 @@
-# LocalStore E-Commerce Platform
+# 🛒 LocalStore E-Commerce Platform
 
-A production-ready full-stack e-commerce application with complete DevOps integration.
+A production-ready full-stack e-commerce application with complete DevOps integration, featuring product search, user reviews, admin panel, and a modern teal-themed UI.
 
 ![Node.js](https://img.shields.io/badge/Node.js-20-green?logo=node.js)
 ![React](https://img.shields.io/badge/React-18-blue?logo=react)
@@ -11,7 +11,65 @@ A production-ready full-stack e-commerce application with complete DevOps integr
 
 ---
 
-## Architecture
+## 📸 Screenshots
+
+### Homepage
+*Hero section with featured categories and product search*
+
+<img width="100%" alt="Homepage" src="https://github.com/user-attachments/assets/d07c50a0-a98d-4d69-877e-1eb3002abacd" />
+
+---
+
+### Product Catalog
+*Browse products by category with search functionality*
+
+<img width="100%" alt="Product Catalog" src="https://github.com/user-attachments/assets/44205154-7869-4152-8e4e-92a8b00f87ef" />
+
+---
+
+### Product Details & Reviews
+*Detailed product page with star ratings and customer reviews*
+
+<img width="100%" alt="Product Details" src="https://github.com/user-attachments/assets/e28c79ba-fc42-4284-b2c1-76d38a9933e1" />
+
+---
+
+### Shopping Cart
+*Cart management with quantity controls and order summary*
+
+<img width="100%" alt="Shopping Cart" src="https://github.com/user-attachments/assets/2d7e98ed-a24b-4670-ab17-da19baeed528" />
+
+---
+
+### User Authentication
+*Secure login and registration with JWT-based authentication*
+
+<img width="100%" alt="Login Page" src="https://github.com/user-attachments/assets/9963d9be-cdcf-4d57-a776-273869aedc9f" />
+
+---
+
+### Admin Panel
+*Admin dashboard for managing products, orders, and users*
+
+<img width="100%" alt="Admin Panel" src="https://github.com/user-attachments/assets/1128f6e5-05fb-4bbe-b445-c5ac3330a804" />
+
+---
+
+### Database (pgAdmin)
+*PostgreSQL database structure and data viewed in pgAdmin 4*
+
+<img width="100%" alt="Database" src="https://github.com/user-attachments/assets/e12b46cd-2866-4512-b01e-a002e0abcfc0" />
+
+---
+
+### Docker Containers
+*All services running in Docker Desktop*
+
+<img width="100%" alt="Docker Containers" src="https://github.com/user-attachments/assets/d8c77e57-598c-40ee-b948-d35f11029082" />
+
+---
+
+## 🏗️ Architecture
 
 ```
                     ┌──────────────┐
@@ -39,33 +97,37 @@ A production-ready full-stack e-commerce application with complete DevOps integr
                                └─────────────────┘
 ```
 
-## Tech Stack
+## 🛠️ Tech Stack
 
-| Layer       | Technology                         |
-| ----------- | ---------------------------------- |
-| Frontend    | React 18, Vite, TailwindCSS        |
-| Backend     | Node.js, Express.js                |
-| Database    | PostgreSQL 16, Prisma ORM          |
-| Auth        | JWT + bcrypt                       |
-| Proxy       | Nginx                              |
-| Containers  | Docker, Docker Compose             |
-| Orchestration | Kubernetes, Helm 3               |
-| CI/CD       | GitHub Actions                     |
-| Monitoring  | Prometheus + prom-client           |
+| Layer         | Technology                  |
+| ------------- | --------------------------- |
+| Frontend      | React 18, Vite, TailwindCSS |
+| Backend       | Node.js, Express.js         |
+| Database      | PostgreSQL 16, Prisma ORM   |
+| Auth          | JWT + bcrypt (role-based)   |
+| Proxy         | Nginx                       |
+| Containers    | Docker, Docker Compose      |
+| Orchestration | Kubernetes, Helm 3          |
+| CI/CD         | GitHub Actions              |
+| Monitoring    | Prometheus + prom-client    |
 
-## Features
+## ✨ Features
 
-- **Product Catalog** — Browse, search, filter by category
-- **Shopping Cart** — Add, update, remove items
-- **Order Management** — Place orders, view history
-- **Authentication** — Register, login with JWT
-- **Responsive UI** — Mobile-first TailwindCSS design
+- **Product Catalog** — Browse, search, and filter 40+ products across 5 categories
+- **Product Reviews** — Star ratings and written reviews from customers
+- **Shopping Cart** — Add, update, remove items with real-time totals
+- **Order Management** — Place orders and view order history
+- **User Profile** — View account details and membership info
+- **Admin Panel** — Full CRUD for products, orders, and user management
+- **Authentication** — Register, login with JWT + role-based access (Customer/Admin)
+- **Search** — Debounced product search across all categories
+- **Responsive UI** — Modern teal-themed design with TailwindCSS
 - **Metrics** — Prometheus-compatible `/api/metrics` endpoint
 - **Security** — Helmet, rate limiting, CORS, input validation
 
 ---
 
-## Quick Start
+## 🚀 Quick Start
 
 ### Prerequisites
 
@@ -93,9 +155,9 @@ The app will be available at:
 
 | Service     | URL                       |
 | ----------- | ------------------------- |
-| Application | http://localhost          |
-| Frontend    | http://localhost:3000     |
+| Frontend    | http://localhost:3005     |
 | Backend API | http://localhost:5000/api |
+| Nginx Proxy | http://localhost:3004     |
 | Prometheus  | http://localhost:9090     |
 
 ### 3. Demo Credentials
@@ -105,9 +167,19 @@ The app will be available at:
 | Admin    | admin@localstore.com | admin123    |
 | Customer | customer@example.com | customer123 |
 
+### 4. Database Connection (pgAdmin 4)
+
+| Field    | Value            |
+| -------- | ---------------- |
+| Host     | localhost        |
+| Port     | 5432             |
+| Database | localstore_db    |
+| Username | localstore       |
+| Password | localstore_pass  |
+
 ---
 
-## Local Development (without Docker)
+## 💻 Local Development (without Docker)
 
 ### Backend
 
@@ -131,7 +203,7 @@ npm run dev                    # Starts on :5173 with API proxy
 
 ---
 
-## API Endpoints
+## 📡 API Endpoints
 
 ### Auth
 
@@ -169,6 +241,30 @@ npm run dev                    # Starts on :5173 with API proxy
 | GET    | /api/orders/:id | Order details | Required |
 | POST   | /api/orders     | Place order   | Required |
 
+### Reviews
+
+| Method | Endpoint             | Description       | Auth     |
+| ------ | -------------------- | ----------------- | -------- |
+| GET    | /api/reviews/:productId | Get reviews    | No       |
+| POST   | /api/reviews/:productId | Add review     | Required |
+
+### Profile
+
+| Method | Endpoint      | Description     | Auth     |
+| ------ | ------------- | --------------- | -------- |
+| GET    | /api/profile  | Get profile     | Required |
+
+### Admin
+
+| Method | Endpoint            | Description       | Auth  |
+| ------ | ------------------- | ----------------- | ----- |
+| GET    | /api/admin/users    | List all users    | Admin |
+| GET    | /api/admin/orders   | List all orders   | Admin |
+| GET    | /api/admin/products | List all products | Admin |
+| POST   | /api/admin/products | Create product    | Admin |
+| PUT    | /api/admin/products/:id | Update product | Admin |
+| DELETE | /api/admin/products/:id | Delete product | Admin |
+
 ### System
 
 | Method | Endpoint     | Description        |
@@ -178,16 +274,17 @@ npm run dev                    # Starts on :5173 with API proxy
 
 ---
 
-## Project Structure
+## 📁 Project Structure
 
 ```
 localstore-ecommerce-devops/
 ├── frontend/
 │   ├── src/
 │   │   ├── api/             # Axios instance
-│   │   ├── components/      # Navbar, Footer, ProductCard, ProtectedRoute
+│   │   ├── components/      # Navbar, Footer, ProductCard, ProtectedRoute, Reviews
 │   │   ├── context/         # AuthContext, CartContext
-│   │   ├── pages/           # Home, ProductDetail, Cart, Login, Orders
+│   │   ├── pages/           # Home, ProductDetail, Cart, Login, Orders, Profile
+│   │   │   └── admin/       # AdminDashboard, AdminProducts, AdminOrders, AdminUsers
 │   │   ├── test/            # Vitest tests
 │   │   ├── App.jsx
 │   │   ├── main.jsx
@@ -200,7 +297,7 @@ localstore-ecommerce-devops/
 │   ├── src/
 │   │   ├── config/          # App config, Prisma client
 │   │   ├── middleware/      # Auth, error handler
-│   │   ├── routes/          # auth, products, cart, orders
+│   │   ├── routes/          # auth, products, cart, orders, reviews, profile, admin
 │   │   ├── metrics.js       # Prometheus metrics
 │   │   └── server.js        # Express app entry
 │   ├── prisma/
@@ -258,13 +355,14 @@ localstore-ecommerce-devops/
 ├── .github/workflows/
 │   └── ci-cd.yml            # GitHub Actions pipeline
 │
+├── screenshots/             # Application screenshots
 ├── docker-compose.yml
 └── README.md
 ```
 
 ---
 
-## CI/CD Pipeline
+## ⚙️ CI/CD Pipeline
 
 The GitHub Actions workflow (`.github/workflows/ci-cd.yml`) runs on every push to `main`/`develop` and on PRs:
 
@@ -282,7 +380,7 @@ The GitHub Actions workflow (`.github/workflows/ci-cd.yml`) runs on every push t
 
 ---
 
-## Monitoring
+## 📊 Monitoring
 
 Prometheus scrapes the backend metrics endpoint every 15 seconds.
 
@@ -298,7 +396,7 @@ Access Prometheus UI at http://localhost:9090
 
 ---
 
-## Kubernetes Deployment
+## ☸️ Kubernetes Deployment
 
 ### Architecture
 
@@ -393,12 +491,12 @@ Or use the deploy script shortcuts:
 
 ### Environment Configs
 
-| File                   | Purpose                                    |
-| ---------------------- | ------------------------------------------ |
-| `values.yaml`          | Default values (base)                      |
-| `values-dev.yaml`      | 1 replica, local images, no TLS, 1Gi PVC   |
-| `values-staging.yaml`  | 2 replicas, autoscaling, staging TLS       |
-| `values-prod.yaml`     | 3+ replicas, strict limits, prod TLS, rate limiting |
+| File                  | Purpose                                             |
+| --------------------- | --------------------------------------------------- |
+| `values.yaml`         | Default values (base)                               |
+| `values-dev.yaml`     | 1 replica, local images, no TLS, 1Gi PVC            |
+| `values-staging.yaml` | 2 replicas, autoscaling, staging TLS                |
+| `values-prod.yaml`    | 3+ replicas, strict limits, prod TLS, rate limiting |
 
 ### Accessing the Application
 
@@ -419,7 +517,7 @@ minikube tunnel
 
 ---
 
-## Production Deployment Checklist
+## ✅ Production Deployment Checklist
 
 - [ ] Change `JWT_SECRET` to a strong random value
 - [ ] Set `POSTGRES_PASSWORD` to a secure password
@@ -438,6 +536,6 @@ minikube tunnel
 
 ---
 
-## License
+## 📄 License
 
 MIT
