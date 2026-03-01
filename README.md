@@ -11,61 +11,42 @@ A production-ready full-stack e-commerce application with complete DevOps integr
 
 ---
 
-## 📸 Screenshots
+## Screenshots
 
-### Homepage
-*Hero section with featured categories and product search*
-
-<img width="100%" alt="Homepage" src="https://github.com/user-attachments/assets/d07c50a0-a98d-4d69-877e-1eb3002abacd" />
-
----
-
-### Product Catalog
-*Browse products by category with search functionality*
-
-<img width="100%" alt="Product Catalog" src="https://github.com/user-attachments/assets/44205154-7869-4152-8e4e-92a8b00f87ef" />
-
----
-
-### Product Details & Reviews
-*Detailed product page with star ratings and customer reviews*
-
-<img width="100%" alt="Product Details" src="https://github.com/user-attachments/assets/e28c79ba-fc42-4284-b2c1-76d38a9933e1" />
-
----
-
-### Shopping Cart
-*Cart management with quantity controls and order summary*
-
-<img width="100%" alt="Shopping Cart" src="https://github.com/user-attachments/assets/2d7e98ed-a24b-4670-ab17-da19baeed528" />
-
----
-
-### User Authentication
-*Secure login and registration with JWT-based authentication*
-
-<img width="100%" alt="Login Page" src="https://github.com/user-attachments/assets/9963d9be-cdcf-4d57-a776-273869aedc9f" />
-
----
-
-### Admin Panel
-*Admin dashboard for managing products, orders, and users*
-
-<img width="100%" alt="Admin Panel" src="https://github.com/user-attachments/assets/1128f6e5-05fb-4bbe-b445-c5ac3330a804" />
-
----
-
-### Database (pgAdmin)
-*PostgreSQL database structure and data viewed in pgAdmin 4*
-
-<img width="100%" alt="Database" src="https://github.com/user-attachments/assets/e12b46cd-2866-4512-b01e-a002e0abcfc0" />
-
----
-
-### Docker Containers
-*All services running in Docker Desktop*
-
-<img width="100%" alt="Docker Containers" src="https://github.com/user-attachments/assets/d8c77e57-598c-40ee-b948-d35f11029082" />
+<table>
+  <tr>
+    <td align="center"><b>Homepage</b></td>
+    <td align="center"><b>Product Catalog</b></td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/d07c50a0-a98d-4d69-877e-1eb3002abacd" alt="Homepage" /></td>
+    <td><img src="https://github.com/user-attachments/assets/44205154-7869-4152-8e4e-92a8b00f87ef" alt="Product Catalog" /></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Product Details & Reviews</b></td>
+    <td align="center"><b>Shopping Cart</b></td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/e28c79ba-fc42-4284-b2c1-76d38a9933e1" alt="Product Details" /></td>
+    <td><img src="https://github.com/user-attachments/assets/2d7e98ed-a24b-4670-ab17-da19baeed528" alt="Shopping Cart" /></td>
+  </tr>
+  <tr>
+    <td align="center"><b>User Authentication</b></td>
+    <td align="center"><b>Admin Panel</b></td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/9963d9be-cdcf-4d57-a776-273869aedc9f" alt="Login" /></td>
+    <td><img src="https://github.com/user-attachments/assets/1128f6e5-05fb-4bbe-b445-c5ac3330a804" alt="Admin Panel" /></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Database — pgAdmin 4</b></td>
+    <td align="center"><b>Docker Containers</b></td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/e12b46cd-2866-4512-b01e-a002e0abcfc0" alt="Database" /></td>
+    <td><img src="https://github.com/user-attachments/assets/d8c77e57-598c-40ee-b948-d35f11029082" alt="Docker" /></td>
+  </tr>
+</table>
 
 ---
 
