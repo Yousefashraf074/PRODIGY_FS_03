@@ -15,36 +15,36 @@ A production-ready full-stack e-commerce application with complete DevOps integr
 
 <table>
   <tr>
-    <td align="center"><b>Homepage</b></td>
-    <td align="center"><b>Product Catalog</b></td>
+    <td align="center"><b>Landing Page — Hero & Categories</b></td>
+    <td align="center"><b>Browse & Search Products</b></td>
   </tr>
   <tr>
-    <td><img src="https://github.com/user-attachments/assets/d07c50a0-a98d-4d69-877e-1eb3002abacd" alt="Homepage" /></td>
-    <td><img src="https://github.com/user-attachments/assets/44205154-7869-4152-8e4e-92a8b00f87ef" alt="Product Catalog" /></td>
+    <td><img src="https://github.com/user-attachments/assets/d07c50a0-a98d-4d69-877e-1eb3002abacd" alt="Landing Page" /></td>
+    <td><img src="https://github.com/user-attachments/assets/44205154-7869-4152-8e4e-92a8b00f87ef" alt="Browse Products" /></td>
   </tr>
   <tr>
-    <td align="center"><b>Product Details & Reviews</b></td>
-    <td align="center"><b>Shopping Cart</b></td>
+    <td align="center"><b>Product Page with Customer Reviews</b></td>
+    <td align="center"><b>Cart & Checkout Summary</b></td>
   </tr>
   <tr>
-    <td><img src="https://github.com/user-attachments/assets/e28c79ba-fc42-4284-b2c1-76d38a9933e1" alt="Product Details" /></td>
-    <td><img src="https://github.com/user-attachments/assets/2d7e98ed-a24b-4670-ab17-da19baeed528" alt="Shopping Cart" /></td>
+    <td><img src="https://github.com/user-attachments/assets/e28c79ba-fc42-4284-b2c1-76d38a9933e1" alt="Product Page" /></td>
+    <td><img src="https://github.com/user-attachments/assets/2d7e98ed-a24b-4670-ab17-da19baeed528" alt="Cart & Checkout" /></td>
   </tr>
   <tr>
-    <td align="center"><b>User Authentication</b></td>
-    <td align="center"><b>Admin Panel</b></td>
+    <td align="center"><b>Secure Login & Registration</b></td>
+    <td align="center"><b>Admin Dashboard — Manage Store</b></td>
   </tr>
   <tr>
-    <td><img src="https://github.com/user-attachments/assets/9963d9be-cdcf-4d57-a776-273869aedc9f" alt="Login" /></td>
-    <td><img src="https://github.com/user-attachments/assets/1128f6e5-05fb-4bbe-b445-c5ac3330a804" alt="Admin Panel" /></td>
+    <td><img src="https://github.com/user-attachments/assets/9963d9be-cdcf-4d57-a776-273869aedc9f" alt="Login & Registration" /></td>
+    <td><img src="https://github.com/user-attachments/assets/1128f6e5-05fb-4bbe-b445-c5ac3330a804" alt="Admin Dashboard" /></td>
   </tr>
   <tr>
-    <td align="center"><b>Database — pgAdmin 4</b></td>
-    <td align="center"><b>Docker Containers</b></td>
+    <td align="center"><b>PostgreSQL Database via pgAdmin</b></td>
+    <td align="center"><b>Docker Services Overview</b></td>
   </tr>
   <tr>
-    <td><img src="https://github.com/user-attachments/assets/e12b46cd-2866-4512-b01e-a002e0abcfc0" alt="Database" /></td>
-    <td><img src="https://github.com/user-attachments/assets/d8c77e57-598c-40ee-b948-d35f11029082" alt="Docker" /></td>
+    <td><img src="https://github.com/user-attachments/assets/e12b46cd-2866-4512-b01e-a002e0abcfc0" alt="PostgreSQL Database" /></td>
+    <td><img src="https://github.com/user-attachments/assets/d8c77e57-598c-40ee-b948-d35f11029082" alt="Docker Services" /></td>
   </tr>
 </table>
 
