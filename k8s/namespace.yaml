@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: localstore
+  labels:
+    app.kubernetes.io/name: localstore
+    app.kubernetes.io/part-of: localstore-ecommerce

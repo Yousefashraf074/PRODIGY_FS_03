@@ -1,0 +1,85 @@
+# Production Environment Overrides
+# Usage: helm upgrade --install localstore ./helm/localstore -f ./helm/localstore/values-prod.yaml -n production
+
+frontend:
+  replicaCount: 3
+  image:
+    repository: your-registry.com/localstore-frontend
+    tag: "latest"
+    pullPolicy: Always
+  resources:
+    requests:
+      cpu: 200m
+      memory: 128Mi
+    limits:
+      cpu: 500m
+      memory: 256Mi
+  autoscaling:
+    enabled: true
+    minReplicas: 3
+    maxReplicas: 10
+    targetCPUUtilizationPercentage: 70
+
+backend:
+  replicaCount: 3
+  image:
+    repository: your-registry.com/localstore-backend
+    tag: "latest"
+    pullPolicy: Always
+  resources:
+    requests:
+      cpu: 500m
+      memory: 512Mi
+    limits:
+      cpu: "1"
+      memory: "1Gi"
+  autoscaling:
+    enabled: true
+    minReplicas: 3
+    maxReplicas: 10
+    targetCPUUtilizationPercentage: 70
+    targetMemoryUtilizationPercentage: 80
+  env:
+    nodeEnv: production
+    corsOrigin: "https://localstore.example.com"
+    jwtExpiresIn: "12h"
+    port: "5000"
+
+postgresql:
+  enabled: true
+  image:
+    tag: "16-alpine"
+  resources:
+    requests:
+      cpu: 500m
+      memory: 512Mi
+    limits:
+      cpu: "2"
+      memory: "2Gi"
+  storage:
+    size: 50Gi
+    storageClassName: gp3  # AWS EBS gp3 or equivalent
+  auth:
+    database: localstore_prod
+    username: localstore_prod
+
+secrets:
+  # IMPORTANT: Never commit real secrets!
+  # Use --set secrets.jwtSecret=xxx or external secrets operator
+  jwtSecret: "REPLACE_VIA_CI_CD_OR_SECRETS_MANAGER"
+  postgresPassword: "REPLACE_VIA_CI_CD_OR_SECRETS_MANAGER"
+
+ingress:
+  enabled: true
+  className: nginx
+  host: localstore.example.com
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    nginx.ingress.kubernetes.io/rate-limit: "100"
+    nginx.ingress.kubernetes.io/rate-limit-window: "1m"
+    nginx.ingress.kubernetes.io/proxy-body-size: "10m"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+  tls:
+    enabled: true
+    secretName: localstore-prod-tls

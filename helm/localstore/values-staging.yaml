@@ -1,0 +1,78 @@
+# Staging Environment Overrides
+# Usage: helm install localstore ./helm/localstore -f ./helm/localstore/values-staging.yaml -n staging
+
+frontend:
+  replicaCount: 2
+  image:
+    repository: your-registry.com/localstore-frontend
+    tag: "staging"
+    pullPolicy: Always
+  resources:
+    requests:
+      cpu: 100m
+      memory: 128Mi
+    limits:
+      cpu: 300m
+      memory: 256Mi
+  autoscaling:
+    enabled: true
+    minReplicas: 2
+    maxReplicas: 4
+    targetCPUUtilizationPercentage: 75
+
+backend:
+  replicaCount: 2
+  image:
+    repository: your-registry.com/localstore-backend
+    tag: "staging"
+    pullPolicy: Always
+  resources:
+    requests:
+      cpu: 200m
+      memory: 256Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+  autoscaling:
+    enabled: true
+    minReplicas: 2
+    maxReplicas: 6
+    targetCPUUtilizationPercentage: 75
+    targetMemoryUtilizationPercentage: 80
+  env:
+    nodeEnv: staging
+    corsOrigin: "https://staging.localstore.example.com"
+    jwtExpiresIn: "1d"
+
+postgresql:
+  enabled: true
+  image:
+    tag: "16-alpine"
+  resources:
+    requests:
+      cpu: 250m
+      memory: 256Mi
+    limits:
+      cpu: "1"
+      memory: 512Mi
+  storage:
+    size: 10Gi
+    storageClassName: standard
+  auth:
+    database: localstore_staging
+    username: localstore_staging
+
+secrets:
+  # Override with --set or external secret manager in CI/CD
+  jwtSecret: "REPLACE_WITH_STAGING_SECRET"
+  postgresPassword: "REPLACE_WITH_STAGING_PASSWORD"
+
+ingress:
+  enabled: true
+  className: nginx
+  host: staging.localstore.example.com
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-staging
+  tls:
+    enabled: true
+    secretName: localstore-staging-tls

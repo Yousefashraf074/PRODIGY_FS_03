@@ -1,0 +1,101 @@
+# ── Global ──────────────────────────────────────────────────
+nameOverride: ""
+fullnameOverride: ""
+namespace: localstore
+
+# ── Frontend ────────────────────────────────────────────────
+frontend:
+  replicaCount: 2
+  image:
+    repository: localstore-frontend
+    tag: latest
+    pullPolicy: IfNotPresent
+  service:
+    type: ClusterIP
+    port: 80
+  resources:
+    requests:
+      cpu: 50m
+      memory: 64Mi
+    limits:
+      cpu: 200m
+      memory: 128Mi
+  autoscaling:
+    enabled: true
+    minReplicas: 2
+    maxReplicas: 6
+    targetCPUUtilization: 70
+
+# ── Backend ─────────────────────────────────────────────────
+backend:
+  replicaCount: 2
+  image:
+    repository: localstore-backend
+    tag: latest
+    pullPolicy: IfNotPresent
+  service:
+    type: ClusterIP
+    port: 5000
+  env:
+    nodeEnv: production
+    port: "5000"
+    jwtExpiresIn: "7d"
+    corsOrigin: "http://localhost"
+  resources:
+    requests:
+      cpu: 100m
+      memory: 128Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+  autoscaling:
+    enabled: true
+    minReplicas: 2
+    maxReplicas: 10
+    targetCPUUtilization: 70
+    targetMemoryUtilization: 80
+
+# ── PostgreSQL ──────────────────────────────────────────────
+postgresql:
+  enabled: true
+  image:
+    repository: postgres
+    tag: "16-alpine"
+    pullPolicy: IfNotPresent
+  auth:
+    database: localstore_db
+    username: localstore
+    password: localstore_pass
+  service:
+    type: ClusterIP
+    port: 5432
+  persistence:
+    enabled: true
+    size: 5Gi
+    storageClass: standard
+  resources:
+    requests:
+      cpu: 100m
+      memory: 256Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+
+# ── Secrets ─────────────────────────────────────────────────
+secrets:
+  jwtSecret: "super-secret-jwt-key-change-in-production"
+
+# ── Ingress ─────────────────────────────────────────────────
+ingress:
+  enabled: true
+  className: nginx
+  host: localstore.local
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/proxy-body-size: "10m"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "60"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "60"
+  tls: []
+  #  - secretName: localstore-tls
+  #    hosts:
+  #      - localstore.local

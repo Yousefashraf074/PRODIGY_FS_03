@@ -1,0 +1,64 @@
+# Development Environment Overrides
+# Usage: helm install localstore ./helm/localstore -f ./helm/localstore/values-dev.yaml
+
+frontend:
+  replicaCount: 1
+  image:
+    repository: localstore-frontend
+    tag: "dev"
+    pullPolicy: Never  # Use local images (minikube/kind)
+  resources:
+    requests:
+      cpu: 50m
+      memory: 64Mi
+    limits:
+      cpu: 200m
+      memory: 128Mi
+  autoscaling:
+    enabled: false
+
+backend:
+  replicaCount: 1
+  image:
+    repository: localstore-backend
+    tag: "dev"
+    pullPolicy: Never
+  resources:
+    requests:
+      cpu: 100m
+      memory: 128Mi
+    limits:
+      cpu: 500m
+      memory: 256Mi
+  autoscaling:
+    enabled: false
+  env:
+    nodeEnv: development
+    corsOrigin: "http://localstore.local"
+    jwtExpiresIn: "7d"
+
+postgresql:
+  enabled: true
+  image:
+    tag: "16-alpine"
+  resources:
+    requests:
+      cpu: 100m
+      memory: 128Mi
+    limits:
+      cpu: 500m
+      memory: 256Mi
+  storage:
+    size: 1Gi
+    storageClassName: standard
+
+secrets:
+  jwtSecret: "dev-jwt-secret-change-me"
+  postgresPassword: "devpassword123"
+
+ingress:
+  enabled: true
+  className: nginx
+  host: localstore.local
+  tls:
+    enabled: false
