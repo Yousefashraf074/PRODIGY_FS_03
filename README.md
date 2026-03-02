@@ -28,7 +28,7 @@ A production-ready full-stack e-commerce application with complete DevOps integr
   </tr>
   <tr>
     <td><img src="https://github.com/user-attachments/assets/e28c79ba-fc42-4284-b2c1-76d38a9933e1" alt="Product Page" /></td>
-    <td><img src="https://github.com/user-attachments/assets/2d7e98ed-a24b-4670-ab17-da19baeed528" alt="Cart & Checkout" /></td>
+    <td><img src="https://github.com/user-attachments/assets/2d7e98ed-a24b-4670-ab17-da19baeed528" alt="Admin Dashboard" /></td>
   </tr>
   <tr>
     <td align="center"><b>Secure Login & Registration</b></td>
@@ -36,7 +36,7 @@ A production-ready full-stack e-commerce application with complete DevOps integr
   </tr>
   <tr>
     <td><img src="https://github.com/user-attachments/assets/9963d9be-cdcf-4d57-a776-273869aedc9f" alt="Login & Registration" /></td>
-    <td><img src="https://github.com/user-attachments/assets/1128f6e5-05fb-4bbe-b445-c5ac3330a804" alt="Admin Dashboard" /></td>
+    <td><img src="https://github.com/user-attachments/assets/1128f6e5-05fb-4bbe-b445-c5ac3330a804" alt="Cart & Checkout Summary" /></td>
   </tr>
   <tr>
     <td align="center"><b>PostgreSQL Database via pgAdmin</b></td>
